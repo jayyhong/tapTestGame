@@ -32,6 +32,6 @@ export class HomePage {
     }
     this.start = setInterval(()=>{
       this.frame();
-    }, 24000/1000)
+    }, 24)
   }
 }
