@@ -6,9 +6,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style="border: solid red 1px; height: 570px" (tap)="animate()">
+  <img style="position:absolute; margin-top: 300px" src="../../assets/images/final-{{file}}.png"/>
 </ion-content>
+<ion-content style="border: solid black 1px; height: 100px; margin-top: 570px">
+  <button ion-button color="primary" style="display:flex; margin: auto" (click)="animate()">Test Animation</button>
+  </ion-content>
