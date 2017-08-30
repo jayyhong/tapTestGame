@@ -7,6 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
   file: any
+  enemyfile_blob_1: any;
   start: any
   damage: any;
   baseDamage: any;
@@ -15,6 +16,7 @@ export class HomePage {
   enemyDatabase: any;
   constructor(public navCtrl: NavController) {
     this.file = 1;
+    this.enemyfile_blob_1 = 1;
     this.baseDamage = 50;
     this.damage = 0;
     this.enemyHealth = 0;
@@ -28,6 +30,7 @@ export class HomePage {
 
   ngOnInit() {
     this.spawnEnemy();
+    this.animate_blob_1();
   }
 
   frame() {
@@ -51,9 +54,7 @@ export class HomePage {
   }
 
   attack() {
-    this.damage = Math.ceil(Math.random() * 10 + this.damage) + this.baseDamage
-    console.log("- ", this.damage)
-    this.enemyHealth = this.enemyHealth - this.damage;
+    this.enemyHealth = this.enemyHealth - (this.baseDamage + Math.ceil(Math.random() * 10));
     console.log('Enemy Health: ', this.enemyHealth)
     if (this.enemyHealth <= 0) {
       console.log('Enemy died')
@@ -70,4 +71,15 @@ export class HomePage {
       this.frame();
     }, 24)
   }
+
+  animate_blob_1() {
+    setInterval(() => {
+      if (this.enemyfile_blob_1 >= 19) {
+        this.enemyfile_blob_1 = 1
+      } else {
+        this.enemyfile_blob_1 ++
+      }
+    }, 50)
+  }
+
 }

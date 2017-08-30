@@ -6,10 +6,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="border: solid red 1px; height: 700px" (tap)="animate(); attack()">
-  <h1>{{damage}}</h1>
-  <img style="position:absolute; height: 100%" src="../../assets/images/final-{{file}}.png"/>
+<ion-content padding no-bounce class="no-scroll" style="border: solid red 1px; height: 700px" (tap)="animate(); attack()">
+  <h1>{{enemyHealth}}</h1>
+  <!-- Enemies -->
+  <img style="position: absolute; height: 40%; margin-top: 300px; margin-left: -10px" src="../../assets/images/blob1/blob_1-{{enemyfile_blob_1}}.png" />
+  <!-- Hero -->
+  <img style="position:absolute; height: 100%; margin-left: 70px" src="../../assets/images/final-{{file}}.png"/>
 </ion-content>
+
 <ion-content style="border: solid black 1px; height: 100px; margin-top: 570px">
   <button ion-button color="primary" style="display:flex; margin: auto" (click)="animate()">Test Animation</button>
   </ion-content>
