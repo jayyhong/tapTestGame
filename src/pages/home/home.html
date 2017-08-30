@@ -6,7 +6,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding style="border: solid red 1px; height: 570px" (tap)="animate()">
+<ion-content padding style="border: solid red 1px; height: 700px" (tap)="animate(); attack()">
+  <h1>{{damage}}</h1>
   <img style="position:absolute; margin-top: 100px" src="../../assets/images/final-{{file}}.png"/>
 </ion-content>
 <ion-content style="border: solid black 1px; height: 100px; margin-top: 570px">
