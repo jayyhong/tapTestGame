@@ -31,7 +31,7 @@ export class HomePage {
   }
 
   frame() {
-    if (this.file >= 18) {
+    if (this.file >= 17) {
       clearInterval(this.start)
       this.file = 1;
     } else {
@@ -53,7 +53,7 @@ export class HomePage {
   attack() {
     this.damage = Math.ceil(Math.random() * 10 + this.damage) + this.baseDamage
     console.log("- ", this.damage)
-    this.enemyHealth = this.damage - this.enemyHealth;
+    this.enemyHealth = this.enemyHealth - this.damage;
     console.log('Enemy Health: ', this.enemyHealth)
     if (this.enemyHealth <= 0) {
       console.log('Enemy died')
