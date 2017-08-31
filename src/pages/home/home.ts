@@ -7,6 +7,8 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
   file: any
+  file_hit_1: any;
+  file_hit_1_stop: any;
   enemyfile_blob_1: any;
   start: any
   damage: any;
@@ -16,6 +18,7 @@ export class HomePage {
   enemyDatabase: any;
   constructor(public navCtrl: NavController) {
     this.file = 1;
+    this.file_hit_1 = 1;
     this.enemyfile_blob_1 = 1;
     this.baseDamage = 50;
     this.damage = 0;
@@ -33,14 +36,6 @@ export class HomePage {
     this.animate_blob_1();
   }
 
-  frame() {
-    if (this.file >= 17) {
-      clearInterval(this.start)
-      this.file = 1;
-    } else {
-      this.file++
-    }
-  }
 
   spawnEnemy() {
     let random = Math.floor(Math.random() * this.enemies.length)
@@ -54,6 +49,11 @@ export class HomePage {
   }
 
   attack() {
+    if (this.file_hit_1 > 1) {
+      this.file_hit_1 = 1;
+      clearInterval(this.file_hit_1_stop)
+    }
+    this.animate_hit1();
     this.enemyHealth = this.enemyHealth - (this.baseDamage + Math.ceil(Math.random() * 10));
     console.log('Enemy Health: ', this.enemyHealth)
     if (this.enemyHealth <= 0) {
@@ -62,6 +62,15 @@ export class HomePage {
     }
   }
 
+  frame() {
+    if (this.file >= 17) {
+      clearInterval(this.start)
+      this.file = 1;
+    } else {
+      this.file++
+    }
+  }
+  
   animate() {
     if (this.file > 1) {
       this.file = 7;
@@ -70,6 +79,17 @@ export class HomePage {
     this.start = setInterval(() => {
       this.frame();
     }, 24)
+  }
+
+  animate_hit1() {
+    this.file_hit_1_stop = setInterval(() => {
+      if (this.file_hit_1 >= 5) {
+        this.file_hit_1 = 1
+        clearInterval(this.file_hit_1_stop)
+      } else {
+        this.file_hit_1 ++
+      }
+    }, 30)
   }
 
   animate_blob_1() {
