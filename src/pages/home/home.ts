@@ -83,7 +83,7 @@ export class HomePage {
 
   animate_hit1() {
     this.file_hit_1_stop = setInterval(() => {
-      if (this.file_hit_1 >= 5) {
+      if (this.file_hit_1 >= 8) {
         this.file_hit_1 = 1
         clearInterval(this.file_hit_1_stop)
       } else {
